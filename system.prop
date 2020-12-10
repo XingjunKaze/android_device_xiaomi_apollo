@@ -2,6 +2,12 @@
 #sys.usb.configfs=1
 ro.product.board=kona
 ro.board.platform=kona
+#ro.product.model=Redmi K30S Ultra
+ro.display.series=Redmi K30S Ultra
+ro.product.odm.model=M2007J3SC
+ro.product.model=M2007J3SC
+ro.product.system.model=M2007J3SC
+ro.product.vendor.model=M2007J3SC
 sys.usb.controller=a600000.dwc3
 sys.usb.rndis.func.name=rndis_bam
 sys.usb.rmnet.func.name=rmnet_bam
@@ -10,5 +16,3 @@ vendor.gatekeeper.disable_spu=true
 ro.boot.dynamic_partitions=true
 ro.adb.secure=0
 fbe.metadata.wrappedkey=true
-
-import /vendor/build_${ro.boot.product.hardware.sku}.prop
