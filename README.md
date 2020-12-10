@@ -1,18 +1,18 @@
 # android_device_xiaomi_apollo
-For building TWRP for Xiaomi Mi 10T / 10T Pro / Redmi K30S
+For building PBRP(TWRP-Based) for Xiaomi Redmi K30S Ultra
 
 *STATUS: TESTING*
 
  - 对于 红米K30S Ultra 有问题的话联系我。 QQ群：https://jq.qq.com/?_wv=1027&k=L7zFfYra
 
-The Xiaomi Mi 10T serie (codenamed _"apollo"_) are high-end smartphones from Xiaomi.
+The Redmi K30S Ultra series (codenamed _"apollo"_) are high-end smartphones from Xiaomi.
 
-Xiaomi Mi 10T serie was announced and released in October 2020.
+Redmi K30S Ultra series was announced and released in November 2020.
 
 
 ## Device specifications
 
-| Device       | Xiaomi Mi 10T / 10T Pro / Redmi K30S        |
+| Device       | Xiaomi Redmi K30S Ultra                     |
 | -----------: | :------------------------------------------ |
 | SoC          | Qualcomm SM8250 Snapdragon 865              |
 | CPU          | 8x Qualcomm® Kryo™ 585 up to 2.84GHz        |
@@ -50,7 +50,7 @@ repo sync
 Then add these projects to .repo/manifest.xml:
 
 ```xml
-<project path="device/xiaomi/apollo" name="Whyle/android_device_xiaomi_apollo" remote="github" revision="android-10.0" />
+<project path="device/xiaomi/apollo" name="Coralfall/android_device_xiaomi_apollo" remote="github" revision="PBRP-3.0" />
 ```
 
 Finally execute these:
@@ -70,3 +70,4 @@ fastboot boot out/target/product/apollo/recovery.img
 
 ## Thanks
 - [mauronofrio](https://github.com/mauronofrio)
+- [Whyle](https://github.com/Whyle)
