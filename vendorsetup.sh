@@ -54,31 +54,35 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_BASH_SHELL=1
 	export FOX_ASH_IS_BASH=1
 	export FOX_USE_TAR_BINARY=1
+    export FOX_USE_SED_BINARY=1
 	export FOX_DELETE_AROMAFM=1
 	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
 	export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
 
-        # use system (ROM) fingerprint where available
-        export OF_USE_SYSTEM_FINGERPRINT=0
+    # use system (ROM) fingerprint where available
+     export OF_USE_SYSTEM_FINGERPRINT=0
+
+   # run a process after formatting data to work-around MTP issues
+	export OF_RUN_POST_FORMAT_PROCESS=1
 
 	# OTA
-	    export OF_KEEP_DM_VERITY=1
-        export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
-        export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-        export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+	 export OF_KEEP_DM_VERITY=1
+     export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
+     export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+     export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
          
-        # Screen Settings
-        export OF_SCREEN_H=2400
-        export OF_STATUS_INDENT_LEFT=150
-        export OF_STATUS_INDENT_RIGHT=48
-        export OF_STATUS_H=115
+    # Screen Settings
+     export OF_SCREEN_H=2400
+     export OF_STATUS_INDENT_LEFT=150
+     export OF_STATUS_INDENT_RIGHT=48
+     export OF_STATUS_H=115
 
-        # -- add settings for R11 --
-        export FOX_VERSION=R11.1_0
-        export FOX_BUILD_TYPE=Beta
-        export OF_MAINTAINER=Vince
-        export OF_USE_TWRP_SAR_DETECT=1
-        # -- end R11 settings --
+    # -- add settings for R11 --
+     export FOX_VERSION=R11.1_0
+     export FOX_BUILD_TYPE=Beta
+     export OF_MAINTAINER=Vince
+     export OF_USE_TWRP_SAR_DETECT=1
+    # -- end R11 settings --
 
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
