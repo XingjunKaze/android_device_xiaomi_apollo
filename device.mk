@@ -20,13 +20,12 @@ PRODUCT_RELEASE_NAME := apollo
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 DEVICE_PATH := device/xiaomi/apollo
 
-# fastbootd stuff PRODUCT_PACKAGES += \
-fastbootd \ 
-android.hardware.fastboot@1.0-impl-mock \ 
-android.hardware.fastboot@1.0-impl-mock.recovery
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery
 
 # QCOM decryption
-PRODUCT_PACKAGES_ENG += \
+PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
 

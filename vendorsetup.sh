@@ -18,7 +18,6 @@
 # 	Please maintain this if you use this script or any part of it
 #
 FDEVICE="apollo"
-
 fox_get_target_device() {
 local chkdev=$(echo "$BASH_SOURCE" | grep $FDEVICE)
    if [ -n "$chkdev" ]; then
@@ -34,11 +33,9 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-        export TW_DEFAULT_LANGUAGE="en"
 	export LC_ALL="C"
  	export ALLOW_MISSING_DEPENDENCIES=true
  	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
- 	export TARGET_DEVICE_ALT="apollopro"
 	
 	export OF_KEEP_FORCED_ENCRYPTION=1
 	export OF_PATCH_AVB20=1

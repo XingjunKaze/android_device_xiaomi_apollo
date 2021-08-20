@@ -27,8 +27,8 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 
-#TARGET_USES_64_BIT_BINDER := true
-#TARGET_SUPPORTS_64_BIT_APPS := true
+TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_64_BIT_APPS := true
 
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
@@ -44,7 +44,6 @@ TARGET_BOARD_PLATFORM := kona
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 QCOM_BOARD_PLATFORMS += kona
 
-# Kernel
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 cgroup.memory=nokmem,nosocket
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.init_fatal_reboot_target=recovery
@@ -73,19 +72,14 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
-
-# QCOM
-#TARGET_USE_SDCLANG := true
-
 # Assert
-TARGET_OTA_ASSERT_DEVICE := apollo, apollopro
+TARGET_OTA_ASSERT_DEVICE := apollon,apollo,apollopro
 
 # Avb
 BOARD_AVB_ENABLE := true
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
 # Partitions
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
@@ -103,8 +97,6 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 # File systems
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-# Use mke2fs to create ext4 images
-#TARGET_USES_MKE2FS := true
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -123,8 +115,6 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
 USE_FSCRYPT := true
 
-
-
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
@@ -137,16 +127,15 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
-#TWRP_EVENT_LOGGING := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_TWRPAPP := true
 TW_NO_SCREEN_BLANK := true
 PLATFORM_VERSION := 16.1.0
-#TW_DEVICE_VERSION := beta 2 by Whyle
 TW_HAS_EDL_MODE := true
 TW_SUPPORT_INPUT_1_2_HAPTICS := true
+
 # Fix Miui 12.x Android 11 Decryption
 BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS += \
     --prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \

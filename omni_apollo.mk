@@ -14,10 +14,8 @@
 # limitations under the License.
 #
 
-# Release name
-PRODUCT_RELEASE_NAME := apollo
 DEVICE_PATH := device/xiaomi/apollo
-
+$(call inherit-product, device/xiaomi/apollo/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit from our custom product configuration
@@ -28,14 +26,10 @@ $(call inherit-product, vendor/omni/config/common.mk)
 PRODUCT_DEVICE := apollo
 PRODUCT_NAME := omni_apollo
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := M2007J3SG
+PRODUCT_MODEL := Redmi K30S Ultra
 PRODUCT_MANUFACTURER := Xiaomi
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31
-
-
-PRODUCT_PACKAGES += fastbootd
-#PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
 
