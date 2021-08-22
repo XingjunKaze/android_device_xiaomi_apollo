@@ -73,7 +73,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := apollon,apollo,apollopro
+TARGET_OTA_ASSERT_DEVICE := apollon, apollo, apollopro
 
 # Avb
 BOARD_AVB_ENABLE := true
