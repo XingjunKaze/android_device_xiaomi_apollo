@@ -61,7 +61,7 @@ TARGET_KERNEL_ARCH := arm64
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_CONFIG := apollo-perf_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/apollo
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 else
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
 ifeq ($(FOX_USE_STOCK_KERNEL),1)
