@@ -33,6 +33,7 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
+    export TW_DEFAULT_LANGUAGE="zh_CH"
     export LC_ALL="C"
  	export ALLOW_MISSING_DEPENDENCIES=true
  	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
@@ -57,7 +58,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
 
     # use system (ROM) fingerprint where available
-    export OF_USE_SYSTEM_FINGERPRINT=0
+    export OF_USE_SYSTEM_FINGERPRINT=1
 
    # run a process after formatting data to work-around MTP issues
 	export OF_RUN_POST_FORMAT_PROCESS=1
@@ -75,7 +76,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export OF_STATUS_H=115
 
     # -- add settings for R11 --
-    export FOX_VERSION=R11.1_0
+    export FOX_VERSION=R11.1
     export FOX_BUILD_TYPE=Hiira-Beta
     export OF_MAINTAINER=Snowfox
     export OF_USE_TWRP_SAR_DETECT=1

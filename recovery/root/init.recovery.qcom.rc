@@ -102,6 +102,13 @@ service vendor.qti.vibrator-1-2 /vendor/bin/hw/vendor.qti.hardware.vibrator@1.2-
     disabled
     seclabel u:r:recovery:s0
 
+service load_modules /sbin/load_modules.sh
+    oneshot
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 on boot
     setprop sys.usb.config adb
 
