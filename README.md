@@ -31,9 +31,7 @@ The Xiaomi Mi 10T serie are high-end smartphones from Xiaomi and was announced a
 - ADB Sideload
 - Fastbootd
 
-**Not Works**
-- Installation problem on K30S Ultra, build is now ONLY suitable for Global versions of apollo
-- Touchscreen may not working on some devices
+All of feature works.
 
 ## Compile
  You can find a compiling guide here:
