@@ -1,14 +1,13 @@
-# android_device_xiaomi_apollo
-OrangeFox Device tree for Xiaomi Mi 10T / 10T Pro / Redmi K30S Ultra (codenamed: "apollo")
+# OrangeFox Device tree for Xiaomi Mi 10T / 10T Pro / Redmi K30S Ultra
 
-*STATUS: BETA*
+*STATUS: STABLE*
 
-The Xiaomi Mi 10T serie are high-end smartphones from Xiaomi and was announced and released in October 2020.
+The Xiaomi Mi 10T serie (codenamed: "apollo") are high-end smartphones from Xiaomi and was announced and released in October 2020.
 
 
 ## Device specifications
 
-| Device       | Xiaomi Mi 10T / 10T Pro / Redmi K30S        |
+| Device       | Xiaomi Mi 10T / 10T Pro / Redmi K30S Ultra  |
 | -----------: | :------------------------------------------ |
 | SoC          | Qualcomm SM8250 Snapdragon 865              |
 | CPU          | 8x Qualcomm® Kryo™ 585 up to 2.84GHz        |
@@ -31,9 +30,7 @@ The Xiaomi Mi 10T serie are high-end smartphones from Xiaomi and was announced a
 - ADB Sideload
 - Fastbootd
 
-**Not Works**
-- Installation problem on K30S Ultra, build is now ONLY suitable for Global versions of apollo
-- Touchscreen may not working on some devices
+All of features are working now.
 
 ## Compile
  You can find a compiling guide here:
