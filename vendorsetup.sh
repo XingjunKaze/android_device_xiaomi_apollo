@@ -33,7 +33,7 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-    export TW_DEFAULT_LANGUAGE="zh_CH"
+    export TW_DEFAULT_LANGUAGE="zh_CN"
     export LC_ALL="C"
  	export ALLOW_MISSING_DEPENDENCIES=true
  	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
@@ -55,6 +55,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export FOX_USE_SED_BINARY=1
 	export FOX_DELETE_AROMAFM=1
 	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
+    export OF_DONT_KEEP_LOG_HISTORY=1
 	export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
 
     # use system (ROM) fingerprint where available
@@ -67,7 +68,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_KEEP_DM_VERITY=1
     export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
     export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-    export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+    export OF_DISABLE_MIUI_OTA_BY_DEFAULT=0
          
     # Screen Settings
     export OF_SCREEN_H=2400
@@ -77,7 +78,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
     # -- add settings for R11 --
     export FOX_VERSION=R11.1
-    export FOX_BUILD_TYPE=Hiira-Beta
+    export FOX_BUILD_TYPE=Hiira-Stable
     export OF_MAINTAINER=Snowfox
     export OF_USE_TWRP_SAR_DETECT=1
     # -- end R11 settings --
