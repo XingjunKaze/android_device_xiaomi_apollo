@@ -1,7 +1,5 @@
 #
-# Copyright (C) 2020 The Android Open Source Project
-# Copyright (C) 2021 OrangeFox Recovery Project
-# Copyright (C) 2020 SebaUbuntu's TWRP device tree generator 
+# Copyright (C) 2020 The TwrpBuilder Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,33 +13,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-PRODUCT_RELEASE_NAME := apollo
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-DEVICE_PATH := device/xiaomi/apollo
+PRODUCT_PACKAGES += \
+    bootctrl.sm8250 \
+    bootctrl.sm8250.recovery \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-impl.recovery \
+    android.hardware.boot@1.0-impl-wrapper.recovery \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
+
+PRODUCT_HOST_PACKAGES += \
+    libandroidicu
 
 PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock \
     android.hardware.fastboot@1.0-impl-mock.recovery
 
-# QCOM decryption
-PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
+# API
+PRODUCT_SHIPPING_API_LEVEL := 29
 
-# Stock flashable zips
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.allow.mock.location=1
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH)
 
-# Apex libraries
-PRODUCT_HOST_PACKAGES += \
-    libandroidicu
-
-# OEM otacert
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/recovery/security/miui
-
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
+# PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
