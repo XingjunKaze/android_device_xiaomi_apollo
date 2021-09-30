@@ -1,31 +1,24 @@
-# android_device_xiaomi_umi
-For building TWRP for Xiaomi Mi 10 / 10 Pro
+# android_device_xiaomi_apollo
 
-TWRP device tree for Xiaomi Mi 10 and Mi 10 Pro
+TWRP device tree for Xiaomi Mi 10T / 10T Pro / Redmi K30S Ultra
 
-Kernel and all blobs are extracted from [miui_CMI_21.9.17_1c6ed0daa1_11.0.zip](https://hugeota.d.miui.com/21.9.17/miui_CMI_21.9.17_1c6ed0daa1_11.0.zip) firmware.
+*STATUS: BETA*
 
-The Xiaomi Mi 10 (codenamed _"umi"_) and Xiaomi Mi 10 Pro (codenamed _"cmi"_) are high-end smartphones from Xiaomi.
-
-Xiaomi Mi 10 / 10 Pro was announced and released in February 2020.
+The Xiaomi Mi 10T serie (codenamed: "apollo") are high-end smartphones from Xiaomi and was announced and released in October 2020.
 
 ## Device specifications
 
-| Device       | Xiaomi Mi 10 / 10 Pro                       |
+| Device       | Xiaomi Mi 10T / 10T Pro / Redmi K30S Ultra  |
 | -----------: | :------------------------------------------ |
 | SoC          | Qualcomm SM8250 Snapdragon 865              |
 | CPU          | 8x Qualcomm® Kryo™ 585 up to 2.84GHz        |
 | GPU          | Adreno 630                                  |
-| Memory       | 8GB / 12GB RAM (LPDDR5)                     |
+| Memory       | 8GB (LPDDR5)                                |
 | Shipped Android version | 10                               |
-| Storage      | 128GB / 256GB / 512GB UFS 3.0 flash storage |
-| Battery      | Non-removable Li-Po 4780mAh                 |
-| Dimensions   | 162.58 x 74.8 x 8.96 mm                     |
-| Display      | 2340 x 1080 (19.5:9), 6.67 inch             |
-
-## Device picture
-
-![Xiaomi Mi 10](https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1581494372.61732687.jpg)
+| Storage      | 128GB / 256GB UFS 3.1 flash storage         |
+| Battery      | Non-removable Li-Po 5000mAh                 |
+| Dimensions   | 165.1 x 76.4 x 9.3 mm                       |
+| Display      | 2400 x 1080 (20:9), 6.67 inch               |
 
 ## Features
 
@@ -37,11 +30,6 @@ Xiaomi Mi 10 / 10 Pro was announced and released in February 2020.
 - MTP
 - OTG
 - Super partition functions
-
-**Not Working**
-- Vibration
-
-Mi 10 is using Dynamic Partition! We need update from TWRP.
 
 ## Compile
 
@@ -55,7 +43,7 @@ repo sync
 Then add these projects to .repo/manifest.xml:
 
 ```xml
-<project path="device/xiaomi/umi" name="sekaiacg/android_device_xiaomi_umi" remote="github" revision="android-11.0-new" />
+<project path="device/xiaomi/apollo" name="Coralfall/android_device_xiaomi_apollo" remote="github" revision="android-11" />
 ```
 
 Finally execute these:
@@ -70,7 +58,7 @@ mka recoveryimage
 To test it:
 
 ```
-fastboot boot out/target/product/umi/recovery.img
+fastboot boot out/target/product/apollo/recovery.img
 ```
 
 ## Thanks
