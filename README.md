@@ -12,7 +12,7 @@ The Xiaomi Mi 10T serie (codenamed: "apollo") are high-end smartphones from Xiao
 | -----------: | :------------------------------------------ |
 | SoC          | Qualcomm SM8250 Snapdragon 865              |
 | CPU          | 8x Qualcomm® Kryo™ 585 up to 2.84GHz        |
-| GPU          | Adreno 630                                  |
+| GPU          | Adreno 650                                  |
 | Memory       | 8GB (LPDDR5)                                |
 | Shipped Android version | 10                               |
 | Storage      | 128GB / 256GB UFS 3.1 flash storage         |

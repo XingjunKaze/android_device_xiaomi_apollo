@@ -25,72 +25,22 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
 on fs
-    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     # vibrator
     chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/f0_save
     chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/osc_save
     chown system system /sys/bus/i2c/drivers/aw8697_haptic/3-005a/osc_save
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    chmod 0660 /dev/qseecom
-    chown system drmrpc /dev/qseecom
-    chmod 0664 /dev/ion
-    chown system system /dev/ion
-    install_keyring
+    export LD_LIBRARY_PATH /sbin:/vendor/lib64:/vendor/lib64/hw
 
-on early-fs
-    start vold
+on post-fs
+    start boot-hal-1-1
 
 on init
     start vendor.qti.vibrator-1-2
-    start hwservicemanager
-    setprop crypto.ready 1
-
-service vendor.qseecomd /vendor/bin/qseecomd
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service hwservicemanager /system/bin/hwservicemanager
-    user root
-    group root
-    disabled
-    onrestart setprop hwservicemanager.ready false
-    seclabel u:r:recovery:s0
-
-service servicemanager /system/bin/servicemanager
-    user root
-    group root readproc
-    disabled
-    seclabel u:r:recovery:s0
-
-service keystore_auth /system/bin/keystore_auth
-    oneshot
-    user system
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-# keystore is started and stopped on demand by TWRP
-service keystore /system/bin/keystore /tmp/misc/keystore
-    user root
-    group root drmrpc readproc
-    disabled
-    seclabel u:r:recovery:s0
-
-service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service keymaster-4-0 /vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
 
 service vendor.qti.vibrator-1-2 /vendor/bin/hw/vendor.qti.hardware.vibrator@1.2-service
     user root
@@ -98,20 +48,6 @@ service vendor.qti.vibrator-1-2 /vendor/bin/hw/vendor.qti.hardware.vibrator@1.2-
     disabled
     seclabel u:r:recovery:s0
 
-on boot
-    start vendor.qti.vibrator
-    setprop sys.usb.config adb
-
-on property:crypto.ready=0
-    stop vendor.qseecomd
-    stop keymaster-4-0
-    stop gatekeeper-1-0
-    stop servicemanager
-
-on property:crypto.ready=1
-    start vendor.qseecomd
-
-on property:vendor.sys.listeners.registered=true
-    start keymaster-4-0
-    start gatekeeper-1-0
-    start servicemanager
+on property:ro.crypto.type=file
+    setprop ro.crypto.state encrypted
+    setprop twrp.apex.loaded true

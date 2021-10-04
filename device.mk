@@ -23,6 +23,10 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-wrapper.recovery \
     android.hardware.fastboot@1.0-impl-mock.recovery \
 
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
 
